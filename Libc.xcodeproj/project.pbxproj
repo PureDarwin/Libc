@@ -9420,11 +9420,11 @@
 			};
 			buildConfigurationList = C9B5359A138D9A690028D27C /* Build configuration list for PBXProject "Libc" */;
 			compatibilityVersion = "Xcode 11.4";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = C9B53595138D9A690028D27C;
 			productRefGroup = C9B535A9138D9E890028D27C /* Products */;
