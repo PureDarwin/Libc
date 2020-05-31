@@ -44,9 +44,6 @@ __FBSDID("$FreeBSD: src/lib/libc/gen/arc4random.c,v 1.25 2008/09/09 09:46:36 ach
 #include <pthread.h>
 
 #include <TargetConditionals.h>
-#if !TARGET_OS_DRIVERKIT
-#define OS_CRASH_ENABLE_EXPERIMENTAL_LIBTRACE 1
-#endif
 #include <os/assumes.h>
 #include <os/lock.h>
 

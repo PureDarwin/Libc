@@ -34,9 +34,6 @@
 #pragma clang diagnostic ignored "-Wint-conversion"
 
 #include <TargetConditionals.h>
-#if !TARGET_OS_DRIVERKIT
-#define OS_CRASH_ENABLE_EXPERIMENTAL_LIBTRACE 1
-#endif
 
 #if defined(LIBC_SCCS) && !defined(lint)
 static char sccsid[] = "@(#)vfprintf.c	8.1 (Berkeley) 6/4/93";
@@ -1458,4 +1455,3 @@ error:
 	return (ret < 0 || ret >= INT_MAX) ? -1 : (int)ret;
 	/* NOTREACHED */
 }
-#pragma clang diagnostic pop
