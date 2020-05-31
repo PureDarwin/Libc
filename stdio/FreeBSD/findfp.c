@@ -40,6 +40,7 @@ static char sccsid[] = "@(#)findfp.c	8.2 (Berkeley) 1/4/94";
 __FBSDID("$FreeBSD: src/lib/libc/stdio/findfp.c,v 1.34 2009/12/05 19:31:38 ed Exp $");
 
 #include <TargetConditionals.h>
+#include <stdatomic.h>
 
 #include <sys/param.h>
 #include <machine/atomic.h>
@@ -78,7 +79,7 @@ pthread_once_t	__sdidinit;
   /* set counted */
 #define __sFXInit3      {.fl_mutex = PTHREAD_RECURSIVE_MUTEX_INITIALIZER, .counted = 1}
 
-static int __scounted;		/* streams counted against STREAM_MAX */
+static atomic_int __scounted;		/* streams counted against STREAM_MAX */
 static int __stream_max;
 
 #if !TARGET_OS_EMBEDDED
@@ -162,10 +163,10 @@ __sfp(int count)
 	pthread_once(&__sdidinit, __sinit);
 
 	if (count) {
-		int32_t new = OSAtomicIncrement32(&__scounted);
+		int32_t new = atomic_fetch_add(&__scounted, 1) + 1;
 		if (new > __stream_max) {
 			if (new > (__stream_max = sysconf(_SC_STREAM_MAX))){
-				OSAtomicDecrement32(&__scounted);
+				atomic_fetch_sub(&__scounted, 1);
 				errno = EMFILE;
 				return NULL;
 			}
@@ -217,7 +218,7 @@ __private_extern__ void
 __sfprelease(FILE *fp)
 {
 	if (fp->_counted) {
-		OSAtomicDecrement32(&__scounted);
+		atomic_fetch_sub(&__scounted, 1);
 		fp->_counted = 0;
 	}
 	
