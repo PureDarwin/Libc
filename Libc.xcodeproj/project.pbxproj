@@ -9310,7 +9310,6 @@
 				C9D9432C138DB73300FB7ACC /* Frameworks */,
 				C942135B13905EB9004BA536 /* Install Manpages */,
 				C965CBF3143BBFF7003912CE /* Remove deps.c */,
-				C93D6152143D321000EB9023 /* Sanitise Headers (rdar://problem/10241868) */,
 				3FF283291A4764370098AD2C /* Simulator Build Compat Symlink */,
 			);
 			buildRules = (
@@ -9641,22 +9640,6 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = ". \"${SCRIPT_INPUT_FILE_0}\"";
-			showEnvVarsInLog = 0;
-		};
-		C93D6152143D321000EB9023 /* Sanitise Headers (rdar://problem/10241868) */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/xcodescripts/sanitise_headers.sh",
-			);
-			name = "Sanitise Headers (rdar://problem/10241868)";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/bash;
 			shellScript = ". \"${SCRIPT_INPUT_FILE_0}\"";
 			showEnvVarsInLog = 0;
