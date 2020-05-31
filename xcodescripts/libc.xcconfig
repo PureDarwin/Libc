@@ -1,7 +1,5 @@
-#include "<DEVELOPER_DIR>/Makefiles/CoreOS/Xcode/BSD.xcconfig"
-
 // Standard settings
-SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator iphoneosnano iphonesimulatornano bridgeos
+SUPPORTED_PLATFORMS = macosx
 
 SDK_INSTALL_VARIANT = $(SDK_INSTALL_VARIANT_$(DRIVERKIT))
 SDK_INSTALL_VARIANT_1 = driverkit
