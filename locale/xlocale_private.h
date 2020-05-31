@@ -43,6 +43,7 @@
 #include "lnumeric.h"
 #include "timelocal.h"
 #include <TargetConditionals.h>
+#include <stdatomic.h>
 
 #undef MB_CUR_MAX
 #define MB_CUR_MAX	(__current_locale()->__lc_ctype->__mb_cur_max)
@@ -55,7 +56,7 @@ typedef void (*__free_extra_t)(void *);
 #define XMAGIC		0x786c6f63616c6530LL	/* 'xlocale0' */
 
 #define	__STRUCT_COMMON	\
-	int32_t __refcount; \
+	atomic_uint_fast32_t __refcount; \
 	__free_extra_t __free_extra;
 
 struct __xlocale_st_collate {
@@ -177,13 +178,13 @@ struct _xlocale {
 				}
 
 #define XL_LOCK(x)	os_unfair_lock_lock(&(x)->__lock);
-#define	XL_RELEASE(x)	if ((x) && (x)->__free_extra != XPERMANENT && OSAtomicDecrement32Barrier(&(x)->__refcount) == 0) { \
+#define	XL_RELEASE(x)	if ((x) && (x)->__free_extra != XPERMANENT && (atomic_fetch_sub(&(x)->__refcount, 1) - 1) == 0) { \
 				if ((x)->__free_extra) \
 					(*(x)->__free_extra)((x)); \
 				free((x)); \
 				(x) = NULL; \
 			}
-#define	XL_RETAIN(x)	if ((x) && (x)->__free_extra != XPERMANENT) { OSAtomicIncrement32Barrier(&(x)->__refcount); }
+#define	XL_RETAIN(x)	if ((x) && (x)->__free_extra != XPERMANENT) { atomic_fetch_add(&(x)->__refcount, 1); }
 #define XL_UNLOCK(x)	os_unfair_lock_unlock(&(x)->__lock);
 
 __attribute__((visibility("hidden")))
