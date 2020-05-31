@@ -787,7 +787,7 @@
 		C0E345DC1C582ECB00E749C2 /* libFreeBSD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9257ED0138E1B5000B3107C /* libFreeBSD.a */; };
 		C0E345DD1C582ECB00E749C2 /* libvCancelable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D94360138EC3E300FB7ACC /* libvCancelable.a */; };
 		C0E345DE1C582ECB00E749C2 /* libTRE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B122F2AD1432B8E600AF95D0 /* libTRE.a */; };
-		C9257ED5138E1C2E00B3107C /* creat.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B535F8138D9E980028D27C /* creat.c */; };
+		C9257ED5138E1C2E00B3107C /* creat.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B535F8138D9E980028D27C /* creat.c */; settings = {COMPILER_FLAGS = "-U__DARWIN_NON_CANCELABLE -D__DARWIN_NON_CANCELABLE=0"; }; };
 		C9257ED6138E1C2E00B3107C /* gethostid.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B535FC138D9E980028D27C /* gethostid.c */; };
 		C9257ED7138E1C2E00B3107C /* getwd.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B535FE138D9E980028D27C /* getwd.c */; };
 		C9257ED8138E1C2E00B3107C /* killpg.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53601138D9E980028D27C /* killpg.c */; };
@@ -985,8 +985,8 @@
 		C9257F9D138E1C9700B3107C /* inet_ntoa.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53A27138D9E990028D27C /* inet_ntoa.c */; };
 		C9257F9E138E1C9700B3107C /* linkaddr.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53A2A138D9E990028D27C /* linkaddr.c */; };
 		C9257F9F138E1C9700B3107C /* nsap_addr.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53A2B138D9E990028D27C /* nsap_addr.c */; };
-		C9257FA0138E1C9700B3107C /* recv.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53A2D138D9E990028D27C /* recv.c */; };
-		C9257FA1138E1C9700B3107C /* send.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53A2F138D9E990028D27C /* send.c */; };
+		C9257FA0138E1C9700B3107C /* recv.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53A2D138D9E990028D27C /* recv.c */; settings = {COMPILER_FLAGS = "-U__DARWIN_NON_CANCELABLE -D__DARWIN_NON_CANCELABLE=0"; }; };
+		C9257FA1138E1C9700B3107C /* send.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53A2F138D9E990028D27C /* send.c */; settings = {COMPILER_FLAGS = "-U__DARWIN_NON_CANCELABLE -D__DARWIN_NON_CANCELABLE=0"; }; };
 		C9257FA2138E1C9700B3107C /* sockatmark.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53A33138D9E990028D27C /* sockatmark.c */; };
 		C9257FA3138E1C9700B3107C /* sourcefilter.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53A36138D9E990028D27C /* sourcefilter.c */; };
 		C9257FA4138E1C9700B3107C /* msgcat.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53A3F138D9E990028D27C /* msgcat.c */; };
