@@ -44,7 +44,6 @@
 #include <dlfcn.h>
 #include <os/debug_private.h>
 #include <os/log.h>
-#include <os/log_private.h>
 #include <os/reason_private.h>
 #else
 #define _os_debug_log_error_str(...)
@@ -247,34 +246,6 @@ _os_crash_impl(const char *message) {
 #endif
 }
 
-#if !TARGET_OS_DRIVERKIT
-__attribute__((always_inline))
-static inline bool
-_os_crash_fmt_impl(os_log_pack_t pack, size_t pack_size)
-{
-	/*
-	 * We put just the format string into the CrashReporter buffer so that we
-	 * can get at least that on customer builds.
-	 */
-	const char *message = pack->olp_format;
-	_os_crash_impl(message);
-
-	char *(*_os_log_pack_send_and_compose)(os_log_pack_t, os_log_t,
-			os_log_type_t, char *, size_t) = NULL;
-	_os_log_pack_send_and_compose = dlsym(RTLD_DEFAULT, "os_log_pack_send_and_compose");
-	if (!_os_log_pack_send_and_compose) return false;
-
-	os_log_t __os_log_default = NULL;
-	__os_log_default = dlsym(RTLD_DEFAULT, "_os_log_default");
-	if (!__os_log_default) return false;
-
-	char *composed = _os_log_pack_send_and_compose(pack, __os_log_default,
-			OS_LOG_TYPE_ERROR, NULL, 0);
-
-	abort_with_payload(OS_REASON_LIBSYSTEM, OS_REASON_LIBSYSTEM_CODE_FAULT, pack, pack_size, composed, 0);
-}
-#endif
-
 __attribute__((always_inline))
 static inline void
 _os_assumes_log_impl(uint64_t code)
@@ -369,13 +340,6 @@ void _os_crash(const char *message)
 {
 	_os_crash_impl(message);
 }
-
-#if !TARGET_OS_DRIVERKIT
-void _os_crash_fmt(os_log_pack_t pack, size_t pack_size)
-{
-	_os_crash_fmt_impl(pack, pack_size);
-}
-#endif
 
 void
 _os_assumes_log(uint64_t code)
