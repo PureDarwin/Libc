@@ -5836,7 +5836,6 @@
 		C9257ED0138E1B5000B3107C /* libFreeBSD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFreeBSD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9258105138E2D3100B3107C /* libNetBSD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNetBSD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C925D1FB151805C6003D315B /* eos_stubs.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = eos_stubs.c; sourceTree = "<group>"; };
-		C93D6150143D31E300EB9023 /* sanitise_headers.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = sanitise_headers.sh; sourceTree = "<group>"; };
 		C94212CC13900C8A004BA536 /* libc_dyld.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libc_dyld.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C942135913904CBC004BA536 /* manpages.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = manpages.sh; sourceTree = "<group>"; };
 		C942135A13905D1C004BA536 /* manpages.lst */ = {isa = PBXFileReference; explicitFileType = text; path = manpages.lst; sourceTree = "<group>"; };
@@ -8979,7 +8978,6 @@
 				C9950E6A1390D2CA009863B6 /* headers.sh */,
 				C9B53D92138D9E9A0028D27C /* strip-header.ed */,
 				C965CBF4143BC1BF003912CE /* force_libc_to_build.sh */,
-				C93D6150143D31E300EB9023 /* sanitise_headers.sh */,
 				3FF283231A4764240098AD2C /* sim-compat-symlink.sh */,
 				C0E343811C58299D00E749C2 /* skip_installhdrs.sh */,
 			);
@@ -9470,7 +9468,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = "/bin/bash -e -x";
-			shellScript = ". \"${SCRIPT_INPUT_FILE_0}\"";
+			shellScript = ". \"${SCRIPT_INPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3F51206B16C3174300AFB431 /* Generate libc-features.h */ = {
@@ -9824,7 +9822,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "perl \"$SRCROOT/xcodescripts/generate_features.pl\"";
+			shellScript = "perl \"$SRCROOT/xcodescripts/generate_features.pl\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C97A6F1F1517AF53005E1998 /* Generate libc-features.h */ = {
