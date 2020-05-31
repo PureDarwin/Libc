@@ -9,3 +9,5 @@ build/
 /Libc.xcodeproj/project.xcworkspace
 /Libc.xcodeproj/xcuserdata
 /Libc.xcodeproj/xcshareddata
+
+/darwinbuild.xcconfig
