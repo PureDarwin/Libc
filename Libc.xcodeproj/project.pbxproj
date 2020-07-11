@@ -778,7 +778,6 @@
 		C0E345D01C582ECB00E749C2 /* strncat.c in Sources */ = {isa = PBXBuildFile; fileRef = 63D4060F13DDF4340094DD56 /* strncat.c */; };
 		C0E345D21C582ECB00E749C2 /* sync_volume_np.c in Sources */ = {isa = PBXBuildFile; fileRef = B19C645B1450F90200032373 /* sync_volume_np.c */; };
 		C0E345D31C582ECB00E749C2 /* dirfd.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7E1B4146EF2E000843438 /* dirfd.c */; };
-		C0E345D41C582ECB00E749C2 /* eos_stubs.c in Sources */ = {isa = PBXBuildFile; fileRef = C925D1FB151805C6003D315B /* eos_stubs.c */; };
 		C0E345D61C582ECB00E749C2 /* assumes.c in Sources */ = {isa = PBXBuildFile; fileRef = 4B2C64A215519BAF00342BFA /* assumes.c */; };
 		C0E345D71C582ECB00E749C2 /* inet_ntop.c in Sources */ = {isa = PBXBuildFile; fileRef = FC2ED60E157D4BE70098EC69 /* inet_ntop.c */; };
 		C0E345D81C582ECB00E749C2 /* inet_pton.c in Sources */ = {isa = PBXBuildFile; fileRef = FC2ED60F157D4BE70098EC69 /* inet_pton.c */; };
@@ -1145,7 +1144,6 @@
 		C9258055138E1CD200B3107C /* wmemset.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53D8F138D9E9A0028D27C /* wmemset.c */; };
 		C9258058138E1CDD00B3107C /* regerror.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B53B0E138D9E990028D27C /* regerror.c */; };
 		C92580CC138E2D3100B3107C /* utmpx.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B537E4138D9E990028D27C /* utmpx.c */; };
-		C925D1FD1518F4A2003D315B /* eos_stubs.c in Sources */ = {isa = PBXBuildFile; fileRef = C925D1FB151805C6003D315B /* eos_stubs.c */; };
 		C9421014138F23CA004BA536 /* frune.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B539E3138D9E990028D27C /* frune.c */; settings = {COMPILER_FLAGS = "-D__FBSDID=__RCSID"; }; };
 		C9421015138F23CA004BA536 /* mbrune.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B539EB138D9E990028D27C /* mbrune.c */; settings = {COMPILER_FLAGS = "-D__FBSDID=__RCSID"; }; };
 		C9421016138F23CA004BA536 /* runedepreciated.c in Sources */ = {isa = PBXBuildFile; fileRef = C9B539EF138D9E990028D27C /* runedepreciated.c */; settings = {COMPILER_FLAGS = "-D__FBSDID=__RCSID"; }; };
@@ -5835,7 +5833,6 @@
 		C9194B4C140E3BC700BE0C3A /* build_linklists.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_linklists.sh; sourceTree = "<group>"; };
 		C9257ED0138E1B5000B3107C /* libFreeBSD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFreeBSD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9258105138E2D3100B3107C /* libNetBSD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNetBSD.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C925D1FB151805C6003D315B /* eos_stubs.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = eos_stubs.c; sourceTree = "<group>"; };
 		C94212CC13900C8A004BA536 /* libc_dyld.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libc_dyld.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C942135913904CBC004BA536 /* manpages.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = manpages.sh; sourceTree = "<group>"; };
 		C942135A13905D1C004BA536 /* manpages.lst */ = {isa = PBXFileReference; explicitFileType = text; path = manpages.lst; sourceTree = "<group>"; };
@@ -7212,7 +7209,6 @@
 			isa = PBXGroup;
 			children = (
 				C9B535AE138D9E980028D27C /* APPLE_LICENSE */,
-				C9B535AF138D9E980028D27C /* arm */,
 				C9B535F5138D9E980028D27C /* compat-43 */,
 				C9B53612138D9E980028D27C /* darwin */,
 				C9B5361D138D9E980028D27C /* db */,
@@ -7273,22 +7269,6 @@
 				926F73921E03E2A3001E049D /* libsystem_darwin.dylib */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C9B535AF138D9E980028D27C /* arm */ = {
-			isa = PBXGroup;
-			children = (
-				C9B535B0138D9E980028D27C /* gen */,
-			);
-			path = arm;
-			sourceTree = "<group>";
-		};
-		C9B535B0138D9E980028D27C /* gen */ = {
-			isa = PBXGroup;
-			children = (
-				C925D1FB151805C6003D315B /* eos_stubs.c */,
-			);
-			path = gen;
 			sourceTree = "<group>";
 		};
 		C9B535F5138D9E980028D27C /* compat-43 */ = {
@@ -10627,7 +10607,6 @@
 				C0E345D01C582ECB00E749C2 /* strncat.c in Sources */,
 				C0E345D21C582ECB00E749C2 /* sync_volume_np.c in Sources */,
 				C0E345D31C582ECB00E749C2 /* dirfd.c in Sources */,
-				C0E345D41C582ECB00E749C2 /* eos_stubs.c in Sources */,
 				C0E345D61C582ECB00E749C2 /* assumes.c in Sources */,
 				C0E345D71C582ECB00E749C2 /* inet_ntop.c in Sources */,
 				C0E345D81C582ECB00E749C2 /* inet_pton.c in Sources */,
@@ -13814,7 +13793,6 @@
 				C97A72131517AF53005E1998 /* strncat.c in Sources */,
 				C97A72161517AF53005E1998 /* sync_volume_np.c in Sources */,
 				C97A72171517AF53005E1998 /* dirfd.c in Sources */,
-				C925D1FD1518F4A2003D315B /* eos_stubs.c in Sources */,
 				4B2C64A415519BC400342BFA /* assumes.c in Sources */,
 				FC2ED611157D4BE80098EC69 /* inet_ntop.c in Sources */,
 				FC2ED61A157D4BE80098EC69 /* inet_pton.c in Sources */,
